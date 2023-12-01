@@ -15,21 +15,7 @@ $clienteQuery = 'CREATE TABLE IF NOT EXISTS  cliente
 )
 ';
 
-$database->exec($clienteQuery);
 
-$fornecedorQuery = 'CREATE TABLE IF NOT EXISTS fornecedor 
-( 
- idFornecedor INT PRIMARY KEY,  
- nome VARCHAR(n) NOT NULL,  
- endereco VARCHAR(n) NOT NULL,  
- cnpj VARCHAR(n) NOT NULL,  
- email VARCHAR(n) NOT NULL,  
- telefone VARCHAR(n) NOT NULL,  
- senha VARCHAR(n) NOT NULL,  
- UNIQUE (cnpj,email)
-)
-
-';
 
 $database->exec($fornecedorQuery);
 
