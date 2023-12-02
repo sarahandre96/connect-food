@@ -1,7 +1,28 @@
 <?php
 
-//die("container-login");
-?>
+include_once "conexao.php";
+
+if (isset($_POST['entrar'])){
+    
+    $email = $_POST['email'];
+   
+    $senha= $_POST['senha'];
+    
+    $stmt= $database->prepare('SELECT * FROM usuario WHERE email= :email');
+    $stmt->bindValue(':email',$email,SQLITE3_TEXT);
+    $result = $stmt->execute();
+  
+    $user = $result->fetchArray();
+
+    if ($user && password_verify ($senha, $user['senha'])) {
+        echo 'Login bem-sucedido';
+    } else {
+        echo 'Usuário ou senha incorretos';
+    }
+         
+  }
+  ?>
+  
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,15 +40,15 @@
             Login
         </h1>
 
-        
+        <form method="post">
            
-            <label for="nomes">Nome</label>
-            <input type="text" name="nomes"  id="nomes"  placeholder="Digite o seu nome" required>
+            <label for="nomes">Email</label>
+            <input type="text" name="email"  id="nomes"  placeholder="Digite o seu nome" required>
             <label for="nomes">Senha</label>
-            <input type="password" name="Senha"  id="Senha" placeholder="Digite o sua Senha" required>
+            <input type="password" name="senha"  id="Senha" placeholder="Digite o sua Senha" required>
             <a href="#" target="_blank" id="esqueceu">esqueceu sua Senha</a>
 
-            <button type="submit" onclick="logar" value="Entrar" id="btn-login">
+            <button type="submit" onclick="logar" name="entrar" value="Entrar" id="btn-login">
                 <span></span>
                 <span></span>
                 <span></span>
