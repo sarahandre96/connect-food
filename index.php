@@ -1,3 +1,8 @@
+<?php
+
+//die("container-login");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,14 +19,7 @@
             Login
         </h1>
 
-        <form id="login">
-            <label for="tipoLogin">Escolhe o seu login:</label>
-
-            <select id="tipoLogin">
-              <option value="cliente">cliente</option>
-              <option value="fornecedor">fornecedor</option>
-              
-            </select>
+        
            
             <label for="nomes">Nome</label>
             <input type="text" name="nomes"  id="nomes"  placeholder="Digite o seu nome" required>
@@ -40,7 +38,7 @@
 
         <div id="registro">
             <p>Ainda não é cliente faça seu cadastro</p>
-            <a href="registrar.html" target="_blank">Tornar-se nosse cliente</a>
+            <a href="cadastrar.php" target="_blank">Tornar-se nosse cliente</a>
         </div>
     </div>
 </body>
